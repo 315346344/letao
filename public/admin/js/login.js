@@ -20,6 +20,9 @@ $(function() {
                     notEmpty: {
                         message: '用户名不能为空'
                     },
+                    callback: {
+                        message: '用户名不能为空'
+                    }
 
                 }
             },
@@ -35,6 +38,9 @@ $(function() {
                         max: 12,
                         message: '用户名长度必须在6到12之间'
                     },
+                    callback: {
+                        message: '密码错误'
+                    }
                 }
             },
         }
@@ -53,16 +59,26 @@ $(function() {
                 if (data.success) {
                     location.href = "index.html";
                 }
-                if (data.error === 1000) {
-                    alert('用户名不存在');
+                if (data.error == 1000) {
+                    //alert("用户名不存在");
+                    //把用户名的校验失败
+                    //第一个参数：想要修改的字段
+                    //第二个参数：改成什么状态  INVALID  VALID
+                    //第三个参数： 指定显示的错误信息
+                    $("form").data("bootstrapValidator").updateStatus("username", "INVALID", "callback");
                 }
-                if (data.error === 1001) {
-                    alert('密码错误');
+                if (data.error == 1001) {
+                    $("form").data("bootstrapValidator").updateStatus("password", "INVALID", "callback");
                 }
+
 
             }
         })
     });
 
 
+    //重置校验样式
+    $("[type='reset']").on("click", function() {
+        $("form").data("bootstrapValidator").resetForm();
+    })
 })
