@@ -30,6 +30,10 @@ a:active {
     margin-top: 150px;
 }
 
+.mb_20 {
+    margin-bottom: 20px;
+}
+
 .panel h4 {
     text-align: center;
 }
