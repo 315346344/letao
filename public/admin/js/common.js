@@ -12,6 +12,20 @@
 
 
 
+    if(location.href.indexOf("login.html") == -1){
+        $.ajax({
+            type: "get",
+            url: "/employee/checkRootLogin",
+            success: function (data) {
+                if(data.error === 400){
+                    location.href = "login.html";
+                }
+            }
+        })
+    }
+
+
+
     $(".child").prev().on("click", function() {
         $(this).next().slideToggle();
     })
