@@ -139,3 +139,23 @@ a:active {
     text-align: center;
     vertical-align: middle;
 }
+
+
+.file_box{
+    width: 82px;
+    height: 34px;
+    position: relative;
+}
+
+.file_box:hover button{
+    background-color: #bbb;
+}
+
+.file_box input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
